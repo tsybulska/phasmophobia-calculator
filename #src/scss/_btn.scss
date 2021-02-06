@@ -1,0 +1,56 @@
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    height: 52px;
+    min-width: 50px;
+    border-radius: $border-radius;
+    border: $border-radius solid $color-bg2;
+    background-color: $color-bg2;
+    color: $color-text2;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+/*
+    &:hover,
+    &:focus,
+    &:active {
+        outline: transparent;
+        background: $color-bg1;
+        color: $color-text1;
+    }*/
+}
+
+.btn-evidence {
+    display: block;
+    width: 100%;
+
+    svg {
+        height: 40px;
+        width: auto;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        svg {
+            fill: $color-text1;
+        }
+    }
+}
+
+.btn-open,
+.btn-expand {
+    margin-right: 20px;
+}
+
+@media (max-width: 767px) {
+    .btn {
+        padding: 10px 15px;
+    }
+
+    .btn-expand {
+        padding: 10px;
+    }
+}
