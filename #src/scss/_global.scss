@@ -10,13 +10,40 @@ html {
 
 body {
     margin: 0;
+    background-color: $color-bg1;
+    color: $color-text1;
+    font-family: $font-family;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    font-weight: 400;
+    text-align: center;
+}
+
+.theme {
     background-color: $color-bg2;
     color: $color-text2;
-    font-family: $font-family;
-    font-size: 1rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    text-align: center;
+
+    svg {
+        fill: $color-text2;
+    }
+
+    .evidence {
+        &__body,
+        &__reset {
+            box-shadow: $shadow1;
+        }
+
+        &__icon {
+            &--done,
+            &--undone {
+                filter: invert(0);
+            }
+        }
+
+        &--undone {
+            box-shadow: $shadow2;
+        }
+    }
 }
 
 h1,
@@ -25,8 +52,10 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0 0 30px 0;
+    margin: 0 0 20px 0;
     padding: 0;
+    font-size: 1.4rem;
+    text-transform: uppercase;
 }
 
 p {
@@ -45,28 +74,59 @@ a {
     display: inline-block;
     text-decoration: none;
     color: inherit;
+    @include onHover;
 }
 
 img {
     max-width: 100%;
 }
 
-.main {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 50px 30px;
+svg {
+    fill: $color-text1;
 }
 
-.hello {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.main,
+.header__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px;
+}
 
-    img {
-        max-width: 100px;
+.container {
+    display: flex;
+}
+
+.row {
+    width: 50%;
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+    .main,
+    .header__inner {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 767.9px) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0 0 10px;
+        font-size: 1.2rem;
     }
 
-    h1 {
-        padding: 20px 0;
+    body {
+        font-size: 1rem;
+    }
+
+    .container {
+        display: block;
+    }
+
+    .row {
+        width: 100%;
     }
 }

@@ -1,0 +1,67 @@
+section.evidence
+    h1
+        a(href='https://store.steampowered.com/app/739630/Phasmophobia/' target='_blank' rel='nofollow noopener') Фазмофобия
+        <br>Калькулятор Улик
+    .container
+        .row
+            #evidence__table
+                .evidence__item
+                    .evidence__body
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#temperature')
+                        span(data-type='Минусовая Темп') Минусовая Темп
+                        .evidence__icon--done
+                    .evidence__icon--undone
+                .evidence__item
+                    .evidence__body
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#flashlight-off')
+                        span(data-type='Отпечатки') Отпечатки
+                        .evidence__icon--done
+                    .evidence__icon--undone
+                .evidence__item
+                    .evidence__body
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#dj')
+                        span(data-type='Радиоприемник') Радиоприемник
+                        .evidence__icon--done
+                    .evidence__icon--undone
+                .evidence__item
+                    .evidence__body
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#dice')
+                        span(data-type='ЭМП ур.5') ЭМП ур.5
+                        .evidence__icon--done
+                    .evidence__icon--undone
+                .evidence__item
+                    .evidence__body
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#pencil')
+                        span(data-type='Блокнот') Блокнот
+                        .evidence__icon--done
+                    .evidence__icon--undone
+                .evidence__item
+                    .evidence__body
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#movie')
+                        span(data-type='Огонек') Огонек
+                        .evidence__icon--done
+                    .evidence__icon--undone
+            #evidence__reset.evidence__reset
+                p Сбросить улики
+        .row
+            .evidence__text
+                ul.evidence__list
+                    li
+                        svg(width='25px', height='25px')
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                        span Клик - добавить улику
+                    li второй клик - убрать
+                    li
+                    li
+                    li
+                        svg(width='25px', height='25px')
+                            use(xlink:href='./assets/icons/sprite.svg#close')
+                        span Клик - не эта улика
+                    li второй клик - убрать
+                p.evidence__warning

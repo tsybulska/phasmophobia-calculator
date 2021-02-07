@@ -1,19 +1,19 @@
 doctype html
-html(lang='en')
+html(lang='ru')
     block head
         head
             meta(charset='UTF-8')
             meta(http-equiv='X-UA-Compatible' content='IE=Edge')
-            meta(name='description' content='Phasmophobia Evidence Calculator')
-            meta(name='keywords' content='Phasmophobia, Evidence, Calculator, Tracker, Cheatsheet')
+            meta(name='description' content='Фазмофобия Калькулятор Улик')
+            meta(name='keywords' content='Phasmophobia, Фазмофобия, Улика, Подсказка, Калькулятор, Трекер, Шпаргалка')
             meta(name='author' content='Olena Tsybulska')
             meta(name='viewport' content='width=device-width, initial-scale=1')
-            title Phasmophobia Evidence Calculator
+            title Фазмофобия Калькулятор Улик
             link(href='./styles/styles.min.css' rel='stylesheet preload prefetch' as='style' type ='text/css')
-            script(src='./scripts/scripts.min.js' defer)
+            script(src='./scripts/scripts-ru.min.js' defer)
     body
         script.
             localStorage.getItem("theme-switched")&&(document.body.classList.toggle("theme"));
-        include includes/index/header
+        include includes/ru/header
         main.main
-            include includes/index/evidence
+            include includes/ru/evidence

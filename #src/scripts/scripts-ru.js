@@ -1,57 +1,57 @@
 const ghosts = {
-    'Phantom': {
+    'Фантом': {
         'evidences': [
-            'Freezing Temps', 'EMF Level 5', 'Ghost Orbs'
+            'Минусовая Темп', 'ЭМП ур.5', 'Огонек'
         ],
     },
-    'Banshee': {
+    'Банши': {
         'evidences': [
-            'Freezing Temps', 'EMF Level 5', 'Fingerprints'
+            'Минусовая Темп', 'ЭМП ур.5', 'Отпечатки'
         ],
     },
-    'Wraith': {
+    'Мираж': {
         'evidences': [
-            'Freezing Temps', 'Spirit Box', 'Fingerprints'
+            'Минусовая Темп', 'Радиоприемник', 'Отпечатки'
         ],
     },
-    'Mare': {
+    'Мара': {
         'evidences': [
-            'Freezing Temps', 'Spirit Box', 'Ghost Orbs'
+            'Минусовая Темп', 'Радиоприемник', 'Огонек'
         ],
     },
-    'Demon': {
+    'Демон': {
         'evidences': [
-            'Freezing Temps', 'Spirit Box', 'Ghost Writing'
+            'Минусовая Темп', 'Радиоприемник', 'Блокнот'
         ],
     },
-    'Yurei': {
+    'Юрэй': {
         'evidences': [
-            'Freezing Temps', 'Ghost Writing', 'Ghost Orbs'
+            'Минусовая Темп', 'Блокнот', 'Огонек'
         ],
     },
-    'Oni': {
+    'Они': {
         'evidences': [
-            'Ghost Writing', 'Spirit Box', 'EMF Level 5'
+            'Блокнот', 'Радиоприемник', 'ЭМП ур.5'
         ],
     },
-    'Revenant': {
+    'Ревенант': {
         'evidences': [
-            'Ghost Writing', 'Fingerprints', 'EMF Level 5'
+            'Блокнот', 'Отпечатки', 'ЭМП ур.5'
         ],
     },
-    'Shade': {
+    'Тень': {
         'evidences': [
-            'Ghost Writing', 'Ghost Orbs', 'EMF Level 5'
+            'Блокнот', 'Огонек', 'ЭМП ур.5'
         ],
     },
-    'Poltergeist': {
+    'Полтергейст': {
         'evidences': [
-            'Spirit Box', 'Fingerprints', 'Ghost Orbs'
+            'Радиоприемник', 'Отпечатки', 'Огонек'
         ],
     },
-    'Jinn': {
+    'Джинн': {
         'evidences': [
-            'Spirit Box', 'EMF Level 5', 'Ghost Orbs'
+            'Радиоприемник', 'ЭМП ур.5', 'Огонек'
         ],
     },
 }
@@ -65,7 +65,7 @@ const colors = ['', 'yellowgreen', 'grey']
 
 document.getElementById('header__theme').addEventListener('click', changeTheme)
 document.getElementById('evidence__reset').addEventListener('click', resetBtn)
-document.getElementById('evidence__table').addEventListener('click', updateEvidenceTable)
+let $table = document.getElementById('evidence__table').addEventListener('click', updateEvidenceTable)
 
 function changeTheme() {
     if (!localStorage.getItem('theme-switched')) {
@@ -131,7 +131,7 @@ function removeEvidence(newEvidence, $addItem) {
 }
 
 function maxEvidence() {
-    document.querySelector('.evidence__warning').textContent = 'Can not be more than 3 evidences!'
+    document.querySelector('.evidence__warning').textContent = 'Не может быть больше трех улик!'
     setTimeout(() => document.querySelector('.evidence__warning').textContent = '', 3000)
 }
 

@@ -1,16 +1,15 @@
-$color-bg1: var(--color-bg, #1f1f1f);
-$color-bg2: var(--color-text, #fcfcfc);
+$color-bg1: #322824;
+$color-bg2: #fcfcfc;
 
-$color-text1: var(--color-text, #fcfcfc);
-$color-text2: var(--color-bg, #1f1f1f);
+$color-text1: #fcfcfc;
+$color-text2: #322824;
 
-$color-primary: var(--color-primary, #343341);
-$color-secondary: var(--color-secondary, #28aaba);
+$color-header1: yellowgreen;
 
 $border-radius: 5px;
 
-$shadow1: var(--color-shadow1, 0 0 5px 2px rgba(0, 0, 0, 0.05));
-$shadow2: var(--color-shadow2, 0 5px 0 rgba(255, 255, 255, 0.1));
+$shadow1: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+$shadow2: 0 0 5px 2px rgba(255, 255, 255, 0.1);
 
 $font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 

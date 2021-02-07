@@ -1,0 +1,67 @@
+section.evidence
+    h1
+        a(href='https://store.steampowered.com/app/739630/Phasmophobia/' target='_blank' rel='nofollow noopener') Phasmophobia
+        <br>Evidence Calculator
+    .container
+        .row
+            #evidence__table
+                .evidence__item
+                    .evidence__body
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#temperature')
+                        span(data-type='Freezing Temps') Freezing Temps
+                        .evidence__icon--done
+                    .evidence__icon--undone
+                .evidence__item
+                    .evidence__body
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#flashlight-off')
+                        span(data-type='Fingerprints') Fingerprints
+                        .evidence__icon--done
+                    .evidence__icon--undone
+                .evidence__item
+                    .evidence__body
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#dj')
+                        span(data-type='Spirit Box') Spirit Box
+                        .evidence__icon--done
+                    .evidence__icon--undone
+                .evidence__item
+                    .evidence__body
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#dice')
+                        span(data-type='EMF Level 5') EMF Level 5
+                        .evidence__icon--done
+                    .evidence__icon--undone
+                .evidence__item
+                    .evidence__body
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#pencil')
+                        span(data-type='Ghost Writing') Ghost Writing
+                        .evidence__icon--done
+                    .evidence__icon--undone
+                .evidence__item
+                    .evidence__body
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#movie')
+                        span(data-type='Ghost Orbs') Ghost Orbs
+                        .evidence__icon--done
+                    .evidence__icon--undone
+            #evidence__reset.evidence__reset
+                p Reset evidences
+        .row
+            .evidence__text
+                ul.evidence__list
+                    li
+                        svg(width='25px', height='25px')
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                        span Click - add the evidence
+                    li second click - remove
+                    li
+                    li
+                    li
+                        svg(width='25px', height='25px')
+                            use(xlink:href='./assets/icons/sprite.svg#close')
+                        span Click - not this evidence
+                    li second click - remove
+                p.evidence__warning
