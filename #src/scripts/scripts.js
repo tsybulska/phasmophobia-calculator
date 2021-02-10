@@ -1,67 +1,9 @@
-const ghosts = {
-    'Phantom': {
-        'evidences': [
-            'Freezing Temps', 'EMF Level 5', 'Ghost Orbs'
-        ],
-    },
-    'Banshee': {
-        'evidences': [
-            'Freezing Temps', 'EMF Level 5', 'Fingerprints'
-        ],
-    },
-    'Wraith': {
-        'evidences': [
-            'Freezing Temps', 'Spirit Box', 'Fingerprints'
-        ],
-    },
-    'Mare': {
-        'evidences': [
-            'Freezing Temps', 'Spirit Box', 'Ghost Orbs'
-        ],
-    },
-    'Demon': {
-        'evidences': [
-            'Freezing Temps', 'Spirit Box', 'Ghost Writing'
-        ],
-    },
-    'Yurei': {
-        'evidences': [
-            'Freezing Temps', 'Ghost Writing', 'Ghost Orbs'
-        ],
-    },
-    'Oni': {
-        'evidences': [
-            'Ghost Writing', 'Spirit Box', 'EMF Level 5'
-        ],
-    },
-    'Revenant': {
-        'evidences': [
-            'Ghost Writing', 'Fingerprints', 'EMF Level 5'
-        ],
-    },
-    'Shade': {
-        'evidences': [
-            'Ghost Writing', 'Ghost Orbs', 'EMF Level 5'
-        ],
-    },
-    'Poltergeist': {
-        'evidences': [
-            'Spirit Box', 'Fingerprints', 'Ghost Orbs'
-        ],
-    },
-    'Jinn': {
-        'evidences': [
-            'Spirit Box', 'EMF Level 5', 'Ghost Orbs'
-        ],
-    },
-}
-
 let checkedEvidences = []
 let unwantedEvidences = []
 let filteredArr = []
 
 const $list = document.querySelector('.evidence__list')
-const colors = ['', 'yellowgreen', 'grey']
+const colors = ['', '#88b757', '#978F6C']
 
 document.getElementById('header__theme').addEventListener('click', changeTheme)
 document.getElementById('evidence__reset').addEventListener('click', resetBtn)
@@ -119,7 +61,7 @@ function unwantedEvidence(newEvidence, $addItem) {
         unwantedEvidences.splice(unwantedEvidences.indexOf(newEvidence), 1)
         $addItem.style.backgroundColor = colors[0]
 
-    } else if (!unwantedEvidences.includes(newEvidence)) {
+    } else if (!unwantedEvidences.includes(newEvidence) || checkedEvidences === []) {
         unwantedEvidences.push(newEvidence)
         $addItem.style.backgroundColor = colors[2]
     }
@@ -166,7 +108,7 @@ function filterEvidence(arr, checkedEvidences) {
 function dispayList(arr) {
     $list.textContent = ''
 
-    if (checkedEvidences.length > 0) {
+    if (checkedEvidences.length > 0 || unwantedEvidences.length > 0) {
         arr.forEach(el => {
             let li = document.createElement('li')
 

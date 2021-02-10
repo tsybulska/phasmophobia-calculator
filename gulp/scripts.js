@@ -25,8 +25,22 @@ module.exports = function scripts() {
         .pipe(rename({ suffix: '.min' }))
         //.pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/scripts/'))
+    gulp.src([
+            './#src/scripts/scripts-en.js'
+        ])
+        .pipe(concat('scripts-en.js'))
+        .pipe(plumber())
+        .pipe(eslint())
+        .pipe(eslint.format())
+        //.pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/preset-env']
+        }))
+        .pipe(terser())
+        .pipe(rename({ suffix: '.min' }))
+        //.pipe(sourcemaps.write())
+        .pipe(gulp.dest('./dist/scripts/'))
     return gulp.src([
-            './node_modules/svgxuse/svgxuse.js',
             './#src/scripts/scripts-ru.js'
         ])
         .pipe(concat('scripts-ru.js'))

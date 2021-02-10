@@ -1,10 +1,10 @@
-$color-bg1: #322824;
-$color-bg2: #fcfcfc;
+$color-bg1: #322f20;
+$color-bg2: #ffffff;
 
-$color-text1: #fcfcfc;
-$color-text2: #322824;
+$color-text1: #ffffff;
+$color-text2: #322f20;
 
-$color-header1: yellowgreen;
+$color-header1: #88b757;
 
 $border-radius: 5px;
 
@@ -12,29 +12,3 @@ $shadow1: 0 0 5px 2px rgba(0, 0, 0, 0.1);
 $shadow2: 0 0 5px 2px rgba(255, 255, 255, 0.1);
 
 $font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-
-// Mobile first
-$breakpoints: (
-    // Smartphones in portrait mode, less than 576px
-    'sm': ('(min-width: 576px)'),
-    // Smartphones in landscape mode
-    'md': ('(min-width: 768px)'),
-    // Tablets in portrait mode
-    'lg': ('(min-width: 992px)'),
-    // Tablets in portrait mode and Desktops
-    'xl': ('(min-width: 1200px)'),
-    // Large desktops
-);
-
-// Desktop first
-$breakpoints: (
-    // Desktop monitors 1366px and above
-    'tl': ('(max-width: 1365px)'),
-    // Tablets in landscape mode, older desktop monitors
-    'tp': ('(max-width: 1023px)'),
-    // Tablets in portrait mode, large display smartphones landscape mode
-    'sl': ('(max-width: 767px)'),
-    // Smartphones in landscape mode
-    'sp': ('(max-width: 420px)'),
-    // Smartphones in portrait mode
-);
