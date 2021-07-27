@@ -5,7 +5,7 @@ html(lang='ru')
             meta(charset='UTF-8')
             meta(http-equiv='X-UA-Compatible' content='IE=Edge')
             meta(name='description' content='Фазмофобия Калькулятор Улик')
-            meta(name='keywords' content='Phasmophobia, Фазмофобия, Улика, Подсказка, Калькулятор, Трекер, Шпаргалка')
+            meta(name='keywords' content='Phasmophobia, Фазмофобия, Улика, Подсказка, Калькулятор, Трекер, Шпаргалка, Гайд, Призрак, Руководство, Прохождение, Фразы, Советы')
             meta(name='author' content='Olena Tsybulska tsybulska.github.io')
             meta(name='viewport' content='width=device-width, initial-scale=1')
             title Фазмофобия Калькулятор Улик
@@ -15,6 +15,7 @@ html(lang='ru')
     body
         script.
             localStorage.getItem("theme-switched")&&(document.body.classList.toggle("theme"));
-        include includes/ru/header
+        include includes/ru/header-ru
         main.main
-            include includes/ru/evidence
+            include includes/ru/evidence-ru
+            include includes/ru/phrases-ru

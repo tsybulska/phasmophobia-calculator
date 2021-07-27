@@ -59,4 +59,24 @@ const ghosts = {
             'Spirit Box', 'EMF Level 5', 'Ghost Orbs'
         ],
     },
+    'Yokai': {
+        'evidences': [
+            'Spirit Box', 'Ghost Writing', 'Ghost Orbs'
+        ],
+    },
+    'Hantu': {
+        'evidences': [
+            'Fingerprints', 'Ghost Writing', 'Ghost Orbs'
+        ],
+    },
+}
+
+document.getElementById('header__phrases').addEventListener('click', phrasesBtn)
+
+function phrasesBtn() {
+    if (document.body.classList.contains('phrases-show')) {
+        document.getElementById('header__phrases').textContent = 'PHRASES'
+    } else {
+        document.getElementById('header__phrases').textContent = 'CALC'
+    }
 }

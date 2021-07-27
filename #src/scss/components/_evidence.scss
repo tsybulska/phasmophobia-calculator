@@ -1,35 +1,36 @@
 .evidence {
-    margin: 0 auto;
-    font-weight: 500;
+    .container {
+        display: flex;
+    }
+
+    svg {
+        height: 35px;
+        width: 35px;
+    }
+
+    span {
+        margin: -2.5px 5px 0;
+    }
 
     &__item {
         display: flex;
         padding: 5px 0;
-
-        svg {
-            height: 35px;
-            width: 35px;
-        }
-
-        span {
-            margin: 0 5px;
-        }
     }
 
     &__body,
     &__reset {
+        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: 50px;
         width: 100%;
         padding: 5px 5px 5px 15px;
-        box-shadow: $shadow2;
+        box-shadow: $shadow1;
         border-radius: $border-radius;
         text-align: center;
         text-transform: uppercase;
         cursor: pointer;
-        @include onHover;
     }
 
     &__reset {
@@ -37,34 +38,16 @@
         margin: 5px 0;
     }
 
-    &__icon {
-        &--done,
-        &--undone {
-            filter: invert(1);
-            @include onHover;
-        }
-
-        &--done {
-            width: 40px;
-            height: 40px;
-            background: url('../assets/icons/sprite.svg#check');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 90%;
-        }
-
-        &--undone {
-            width: 50px;
-            height: 50px;
-            margin-left: 10px;
-            box-shadow: $shadow1;
-            border-radius: $border-radius;
-            background: url('../assets/icons/sprite.svg#close');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 80%;
-            cursor: pointer;
-        }
+    &__not-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        margin-left: 10px;
+        box-shadow: $shadow1;
+        border-radius: $border-radius;
+        cursor: pointer;
     }
 
     &__text {
@@ -76,8 +59,8 @@
 
         li {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 10px;
+            align-items: center;
+            margin-bottom: 5px;
         }
     }
 
@@ -86,41 +69,39 @@
     }
 }
 
+@media (min-width: 768px) {
+    .evidence {
+        &__body,
+        &__reset,
+        &__not-icon {
+            transition: box-shadow 0.2s ease-in-out;
+            &:hover {
+                box-shadow: $shadow2;
+            }
+        }
+    }
+}
+
 @media (max-width: 767.9px) {
     .evidence {
-        &__item {
-            svg {
-                height: 25px;
-                width: 25px;
-            }
+        .container {
+            display: block;
+        }
+
+        svg {
+            height: 25px;
+            width: 25px;
         }
 
         &__body,
         &__reset {
-            height: 35px;
+            height: 40px;
             padding: 5px 5px 5px 10px;
         }
 
-        &__reset {
-            justify-content: center;
-            margin: 5px 0;
-        }
-
-        &__icon {
-            &--done {
-                width: 25px;
-                height: 25px;
-                background: url('../assets/icons/sprite.svg#check');
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: 100%;
-            }
-
-            &--undone {
-                width: 35px;
-                height: 35px;
-                background-size: 70%;
-            }
+        &__not-icon {
+            width: 50px;
+            height: 40px;
         }
 
         &__text {

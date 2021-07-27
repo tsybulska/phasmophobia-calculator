@@ -10,58 +10,77 @@ section.evidence
                         svg
                             use(xlink:href='./assets/icons/sprite.svg#temperature')
                         span(data-type='Минусовая Темп') Минусовая Темп
-                        .evidence__icon--done
-                    .evidence__icon--undone
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                    .evidence__not-icon
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#close')
                 .evidence__item
                     .evidence__body
                         svg
                             use(xlink:href='./assets/icons/sprite.svg#flashlight-off')
                         span(data-type='Отпечатки') Отпечатки
-                        .evidence__icon--done
-                    .evidence__icon--undone
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                    .evidence__not-icon
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#close')
                 .evidence__item
                     .evidence__body
                         svg
                             use(xlink:href='./assets/icons/sprite.svg#dj')
                         span(data-type='Радиоприемник') Радиоприемник
-                        .evidence__icon--done
-                    .evidence__icon--undone
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                    .evidence__not-icon
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#close')
                 .evidence__item
                     .evidence__body
                         svg
                             use(xlink:href='./assets/icons/sprite.svg#dice')
                         span(data-type='ЭМП ур.5') ЭМП ур.5
-                        .evidence__icon--done
-                    .evidence__icon--undone
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                    .evidence__not-icon
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#close')
                 .evidence__item
                     .evidence__body
                         svg
                             use(xlink:href='./assets/icons/sprite.svg#pencil')
                         span(data-type='Блокнот') Блокнот
-                        .evidence__icon--done
-                    .evidence__icon--undone
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                    .evidence__not-icon
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#close')
                 .evidence__item
                     .evidence__body
                         svg
                             use(xlink:href='./assets/icons/sprite.svg#movie')
                         span(data-type='Огонек') Огонек
-                        .evidence__icon--done
-                    .evidence__icon--undone
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                    .evidence__not-icon
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#close')
             #evidence__reset.evidence__reset
-                p Сбросить улики
+                span Сбросить улики
         .row
             .evidence__text
                 ul.evidence__list
                     li
                         svg(width='25px', height='25px')
                             use(xlink:href='./assets/icons/sprite.svg#check')
-                        span Клик - добавить улику
+                        | Клик - добавить улику
                     li второй клик - убрать
+                    li
                     li
                     li
                     li
                         svg(width='25px', height='25px')
                             use(xlink:href='./assets/icons/sprite.svg#close')
-                        span Клик - не эта улика
+                        | Клик - не эта улика
                     li второй клик - убрать
                 p.evidence__warning

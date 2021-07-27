@@ -1,8 +1,8 @@
 .header {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding: 20px 0;
-    background-color: $color-header1;
-    box-shadow: $shadow1;
+    background-color: $color1;
+    box-shadow: $shadow2;
     font-weight: 500;
     text-align: left;
     text-transform: uppercase;
@@ -10,10 +10,9 @@
     &__inner {
         display: flex;
         justify-content: space-between;
-        align-items: center;
         padding: 0 15px;
+        align-items: center;
         margin: 0 auto;
-        margin-top: -6px;
 
         svg {
             margin-top: 2px;
@@ -25,26 +24,22 @@
     &__icons {
         display: flex;
         align-items: center;
-        text-transform: uppercase;
 
         * {
             margin-left: 15px;
+            @include onHover;
+            cursor: pointer;
         }
-    }
-
-    &__theme {
-        cursor: pointer;
-        @include onHover;
     }
 }
 
 @media (max-width: 767.9px) {
     .header {
-        margin-bottom: 5px;
         padding: 10px 0;
+        font-size: 0.8rem;
 
         &__inner {
-            margin: -2px -3px 0 0;
+            margin-right: -3px;
 
             a span {
                 display: none;
@@ -54,6 +49,12 @@
                 margin-top: 2px;
                 width: 20px;
                 height: 20px;
+            }
+        }
+
+        &__icons {
+            * {
+                margin-left: 10px;
             }
         }
     }

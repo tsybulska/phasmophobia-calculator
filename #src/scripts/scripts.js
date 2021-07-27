@@ -3,11 +3,55 @@ let unwantedEvidences = []
 let filteredArr = []
 
 const $list = document.querySelector('.evidence__list')
-const colors = ['', '#88b757', '#978F6C']
+const colors = ['', '#70bb1f', '#968E6B']
 
+document.getElementById('header__phrases').addEventListener('click', phrasesBtn)
+document.getElementById('phrases__label').addEventListener('click', phrasesLabel)
 document.getElementById('header__theme').addEventListener('click', changeTheme)
 document.getElementById('evidence__reset').addEventListener('click', resetBtn)
 document.getElementById('evidence__table').addEventListener('click', updateEvidenceTable)
+
+function phrasesBtn() {
+    if (document.body.classList.contains('phrases-show')) {
+        document.body.classList.toggle('phrases-show')
+        document.querySelector('.phrases').style.display = 'none'
+        document.querySelector('.evidence').style.display = 'block'
+    } else {
+        document.body.classList.toggle('phrases-show')
+        document.querySelector('.evidence').style.display = 'none'
+        document.querySelector('.phrases').style.display = 'block'
+    }
+}
+
+function phrasesLabel(event) {
+    let label = event.target.closest('li')
+    let labelItems = document.getElementById('phrases__label').querySelectorAll('li')
+    let textItems = document.getElementById('phrases__text').querySelectorAll('div')
+    
+    labelItems.forEach(el => el.classList.remove('label-active'))
+    event.target.closest('li').classList.add('label-active')
+
+    if (label.classList.contains('phrases__all-label')) {
+        textItems.forEach(el => el.style.display = 'block')
+
+    } else {
+        textItems.forEach(el => el.style.display = 'none')
+
+        if (label.classList.contains('phrases__general-label')) {
+            document.querySelector('.phrases__general').style.display = 'block'
+
+        } else if (label.classList.contains('phrases__box-label')) {
+            console.log('wqee213')
+            document.querySelector('.phrases__box').style.display = 'block'
+
+        } else if (label.classList.contains('phrases__board-label')) {
+            document.querySelector('.phrases__board').style.display = 'block'
+
+        } else if (label.classList.contains('phrases__trigger-label')) {
+            document.querySelector('.phrases__trigger').style.display = 'block'
+        }
+    }
+}
 
 function changeTheme() {
     if (!localStorage.getItem('theme-switched')) {
@@ -32,7 +76,7 @@ function updateEvidenceTable(event) {
     let newEvidence = event.target.closest('.evidence__item').querySelector('span').dataset.type
 
     // if clicked remove button or in unwanted
-    if ((event.target.getAttribute('class') === 'evidence__icon--undone') || unwantedEvidences.includes(newEvidence)) {
+    if ((event.target.closest('.evidence__not-icon') || unwantedEvidences.includes(newEvidence))) {
         unwantedEvidence(newEvidence, $addItem)
 
     // if already checked

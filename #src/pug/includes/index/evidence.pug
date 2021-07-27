@@ -10,58 +10,77 @@ section.evidence
                         svg
                             use(xlink:href='./assets/icons/sprite.svg#temperature')
                         span(data-type='Freezing Temps') Freezing Temps
-                        .evidence__icon--done
-                    .evidence__icon--undone
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                    .evidence__not-icon
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#close')
                 .evidence__item
                     .evidence__body
                         svg
                             use(xlink:href='./assets/icons/sprite.svg#flashlight-off')
                         span(data-type='Fingerprints') Fingerprints
-                        .evidence__icon--done
-                    .evidence__icon--undone
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                    .evidence__not-icon
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#close')
                 .evidence__item
                     .evidence__body
                         svg
                             use(xlink:href='./assets/icons/sprite.svg#dj')
                         span(data-type='Spirit Box') Spirit Box
-                        .evidence__icon--done
-                    .evidence__icon--undone
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                    .evidence__not-icon
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#close')
                 .evidence__item
                     .evidence__body
                         svg
                             use(xlink:href='./assets/icons/sprite.svg#dice')
                         span(data-type='EMF Level 5') EMF Level 5
-                        .evidence__icon--done
-                    .evidence__icon--undone
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                    .evidence__not-icon
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#close')
                 .evidence__item
                     .evidence__body
                         svg
                             use(xlink:href='./assets/icons/sprite.svg#pencil')
                         span(data-type='Ghost Writing') Ghost Writing
-                        .evidence__icon--done
-                    .evidence__icon--undone
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                    .evidence__not-icon
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#close')
                 .evidence__item
                     .evidence__body
                         svg
                             use(xlink:href='./assets/icons/sprite.svg#movie')
                         span(data-type='Ghost Orbs') Ghost Orbs
-                        .evidence__icon--done
-                    .evidence__icon--undone
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#check')
+                    .evidence__not-icon
+                        svg
+                            use(xlink:href='./assets/icons/sprite.svg#close')
             #evidence__reset.evidence__reset
-                p Reset evidences
+                span Reset evidences
         .row
             .evidence__text
                 ul.evidence__list
                     li
-                        svg(width='25px', height='25px')
+                        svg
                             use(xlink:href='./assets/icons/sprite.svg#check')
-                        span Click - add the evidence
+                        | Click - add the evidence
                     li second click - remove
                     li
                     li
                     li
-                        svg(width='25px', height='25px')
+                    li
+                        svg
                             use(xlink:href='./assets/icons/sprite.svg#close')
-                        span Click - not this evidence
+                        | Click - not this evidence
                     li second click - remove
                 p.evidence__warning

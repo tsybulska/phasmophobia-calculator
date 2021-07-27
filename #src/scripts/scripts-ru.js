@@ -59,4 +59,24 @@ const ghosts = {
             'Радиоприемник', 'ЭМП ур.5', 'Огонек'
         ],
     },
+    'Ёкай': {
+        'evidences': [
+            'Spirit Box', 'Ghost Writing', 'Ghost Orbs'
+        ],
+    },
+    'Ханту': {
+        'evidences': [
+            'Fingerprints', 'Ghost Writing', 'Ghost Orbs'
+        ],
+    },
+}
+
+document.getElementById('header__phrases').addEventListener('click', phrasesBtn)
+
+function phrasesBtn() {
+    if (document.body.classList.contains('phrases-show')) {
+        document.getElementById('header__phrases').textContent = 'ФРАЗЫ'
+    } else {
+        document.getElementById('header__phrases').textContent = 'КАЛЬКУЛЯТОР'
+    }
 }
