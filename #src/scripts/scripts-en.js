@@ -1,82 +1,84 @@
 const ghosts = {
     'Phantom': {
         'evidences': [
-            'Freezing Temps', 'EMF Level 5', 'Ghost Orbs'
+            'D.O.T.S Projector', 'Fingerprints', 'Spirit Box'
         ],
     },
     'Banshee': {
         'evidences': [
-            'Freezing Temps', 'EMF Level 5', 'Fingerprints'
+            'D.O.T.S Projector', 'Ghost Orb', 'Fingerprints'
         ],
     },
     'Wraith': {
         'evidences': [
-            'Freezing Temps', 'Spirit Box', 'Fingerprints'
+            'D.O.T.S Projector', 'Spirit Box', 'EMF Level 5'
         ],
     },
     'Mare': {
         'evidences': [
-            'Freezing Temps', 'Spirit Box', 'Ghost Orbs'
+            'Ghost Writing', 'Spirit Box', 'Ghost Orb'
         ],
     },
     'Demon': {
         'evidences': [
-            'Freezing Temps', 'Spirit Box', 'Ghost Writing'
+            'Freezing Temps', 'Fingerprints', 'Ghost Writing'
         ],
     },
     'Yurei': {
         'evidences': [
-            'Freezing Temps', 'Ghost Writing', 'Ghost Orbs'
+            'Freezing Temps', 'D.O.T.S Projector', 'Ghost Orb'
         ],
     },
     'Oni': {
         'evidences': [
-            'Ghost Writing', 'Spirit Box', 'EMF Level 5'
+            'D.O.T.S Projector', 'Freezing Temps', 'EMF Level 5'
         ],
     },
     'Revenant': {
         'evidences': [
-            'Ghost Writing', 'Fingerprints', 'EMF Level 5'
+            'Ghost Writing', 'Ghost Orb', 'Freezing Temps'
         ],
     },
     'Spirit': {
         'evidences': [
-            'Ghost Writing', 'Fingerprints', 'Spirit Box'
+            'Ghost Writing', 'EMF Level 5', 'Spirit Box'
         ],
     },
     'Shade': {
         'evidences': [
-            'Ghost Writing', 'Ghost Orbs', 'EMF Level 5'
+            'Ghost Writing', 'EMF Level 5', 'Freezing Temps'
         ],
     },
     'Poltergeist': {
         'evidences': [
-            'Spirit Box', 'Fingerprints', 'Ghost Orbs'
+            'Spirit Box', 'Fingerprints', 'Ghost Writing'
         ],
     },
     'Jinn': {
         'evidences': [
-            'Spirit Box', 'EMF Level 5', 'Ghost Orbs'
+            'Fingerprints', 'EMF Level 5', 'Freezing Temps'
         ],
     },
     'Yokai': {
         'evidences': [
-            'Spirit Box', 'Ghost Writing', 'Ghost Orbs'
+            'Spirit Box', 'D.O.T.S Projector', 'Ghost Orb'
         ],
     },
     'Hantu': {
         'evidences': [
-            'Fingerprints', 'Ghost Writing', 'Ghost Orbs'
+            'Fingerprints', 'Freezing Temps', 'Ghost Orb'
+        ],
+    },
+    'Goryo': {
+        'evidences': [
+            'D.O.T.S Projector', 'EMF Level 5', 'Fingerprints'
+        ],
+    },
+    'Myling': {
+        'evidences': [
+            'Fingerprints', 'Ghost Writing', 'EMF Level 5'
         ],
     },
 }
 
-document.getElementById('header__phrases').addEventListener('click', phrasesBtn)
-
-function phrasesBtn() {
-    if (document.body.classList.contains('phrases-show')) {
-        document.getElementById('header__phrases').textContent = 'PHRASES'
-    } else {
-        document.getElementById('header__phrases').textContent = 'CALC'
-    }
-}
+document.body.classList.toggle('en')

@@ -1,9 +1,14 @@
 let checkedEvidences = []
 let unwantedEvidences = []
 let filteredArr = []
+let language = ''
 
 const $list = document.querySelector('.evidence__list')
 const colors = ['', '#70bb1f', '#968E6B']
+const headerPhrasesArr = {
+    'en': ['PHRASES', 'CALC'],
+    'ru': ['ФРАЗЫ', 'КАЛЬКУЛЯТОР'],
+}
 
 document.getElementById('header__phrases').addEventListener('click', phrasesBtn)
 document.getElementById('phrases__label').addEventListener('click', phrasesLabel)
@@ -11,16 +16,20 @@ document.getElementById('header__theme').addEventListener('click', changeTheme)
 document.getElementById('evidence__reset').addEventListener('click', resetBtn)
 document.getElementById('evidence__table').addEventListener('click', updateEvidenceTable)
 
-function phrasesBtn() {
+language = document.body.classList.contains('en') ? 'en' : 'ru'
+
+function phrasesBtn(event) {
     if (document.body.classList.contains('phrases-show')) {
-        document.body.classList.toggle('phrases-show')
         document.querySelector('.phrases').style.display = 'none'
         document.querySelector('.evidence').style.display = 'block'
+        event.target.textContent = headerPhrasesArr[language][0]
     } else {
-        document.body.classList.toggle('phrases-show')
         document.querySelector('.evidence').style.display = 'none'
         document.querySelector('.phrases').style.display = 'block'
+        event.target.textContent = headerPhrasesArr[language][1]
     }
+
+    document.body.classList.toggle('phrases-show')
 }
 
 function phrasesLabel(event) {
