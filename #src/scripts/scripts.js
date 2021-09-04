@@ -9,6 +9,72 @@ const headerPhrasesArr = {
     'en': ['PHRASES', 'CALC'],
     'ru': ['ФРАЗЫ', 'КАЛЬКУЛЯТОР'],
 }
+const ghosts = [
+    {
+        'name': ghostType[0],
+        'evidences': [evidenceType[0], evidenceType[5], evidenceType[6]],
+    },
+    {
+        'name': ghostType[1],
+        'evidences': [evidenceType[0], evidenceType[3], evidenceType[6]],
+    },
+    {
+        'name': ghostType[2],
+        'evidences': [evidenceType[0], evidenceType[2], evidenceType[5]],
+    },
+    {
+        'name': ghostType[3],
+        'evidences': [evidenceType[1], evidenceType[3], evidenceType[5]],
+    },
+    {
+        'name': ghostType[4],
+        'evidences': [evidenceType[1], evidenceType[4], evidenceType[6]],
+    },
+    {
+        'name': ghostType[5],
+        'evidences': [evidenceType[0], evidenceType[3], evidenceType[4]],
+    },
+    {
+        'name': ghostType[6],
+        'evidences': [ evidenceType[0], evidenceType[2], evidenceType[4]],
+    },
+    {
+        'name': ghostType[7],
+        'evidences': [evidenceType[1], evidenceType[3], evidenceType[4]],
+    },
+    {
+        'name': ghostType[8],
+        'evidences': [evidenceType[1], evidenceType[2], evidenceType[5]],
+    },
+    {
+        'name': ghostType[9],
+        'evidences': [evidenceType[1], evidenceType[2], evidenceType[4]],
+    },
+    {
+        'name': ghostType[10],
+        'evidences': [evidenceType[1], evidenceType[5], evidenceType[6]],
+    },
+    {
+        'name': ghostType[11],
+        'evidences': [evidenceType[2], evidenceType[4], evidenceType[6]],
+    },
+    {
+        'name': ghostType[12],
+        'evidences': [evidenceType[0], evidenceType[3], evidenceType[5]],
+    },
+    {
+        'name': ghostType[13],
+        'evidences': [evidenceType[3], evidenceType[4], evidenceType[6]],
+    },
+    {
+        'name': ghostType[14],
+        'evidences': [evidenceType[0], evidenceType[2], evidenceType[6]],
+    },
+    {
+        'name': ghostType[15],
+        'evidences': [evidenceType[1], evidenceType[2], evidenceType[6]],
+    },
+]
 
 document.getElementById('header__phrases').addEventListener('click', phrasesBtn)
 document.getElementById('phrases__label').addEventListener('click', phrasesLabel)
@@ -50,7 +116,6 @@ function phrasesLabel(event) {
             document.querySelector('.phrases__general').style.display = 'block'
 
         } else if (label.classList.contains('phrases__box-label')) {
-            console.log('wqee213')
             document.querySelector('.phrases__box').style.display = 'block'
 
         } else if (label.classList.contains('phrases__board-label')) {
@@ -126,7 +191,8 @@ function removeEvidence(newEvidence, $addItem) {
 }
 
 function maxEvidence() {
-    document.querySelector('.evidence__warning').textContent = 'Can not be more than 3 evidences!'
+    if (language === 'en') document.querySelector('.evidence__warning').textContent = 'Can not be more than 3 evidences!'
+    if (language === 'ru') document.querySelector('.evidence__warning').textContent = 'Не может быть больше 3 улик!'
     setTimeout(() => document.querySelector('.evidence__warning').textContent = '', 3000)
 }
 
@@ -136,7 +202,7 @@ function addEvidence(newEvidence, $addItem) {
 }
 
 function updateEvidence() {
-    filterEvidence(Object.entries(ghosts), checkedEvidences)
+    filterEvidence(ghosts, checkedEvidences)
     dispayList(filteredArr)
 }
 
@@ -147,11 +213,11 @@ function filterEvidence(arr, checkedEvidences) {
         let containsAllEvidences = true
 
         unwantedEvidences.forEach(evidence => {
-            if (ghost[1].evidences.includes(evidence)) containsAllEvidences = false
+            if (ghost.evidences.includes(evidence)) containsAllEvidences = false
         })
 
         checkedEvidences.forEach(evidence => {
-            if (!ghost[1].evidences.includes(evidence)) containsAllEvidences = false
+            if (!ghost.evidences.includes(evidence)) containsAllEvidences = false
         })
 
         if (containsAllEvidences) filteredArr.push(ghost)
@@ -166,11 +232,11 @@ function dispayList(arr) {
             let li = document.createElement('li')
 
             if (checkedEvidences.length === 3) {
-                li.textContent = el[0]
+                li.textContent = el.name
             } else {
-                li.textContent = el[0] + ' - '
-                el[1].evidences.forEach(evidences => {
-                    if (!checkedEvidences.includes(evidences)) li.textContent += evidences + ', '
+                li.textContent = el.name + ' - '
+                el.evidences.forEach(evidence => {
+                    if (!checkedEvidences.includes(evidence)) li.textContent += evidence + ', '
                 })
                 li.textContent = li.textContent.slice(0, -2)
             }
