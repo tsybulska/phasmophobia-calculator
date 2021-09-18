@@ -2,6 +2,8 @@ let checkedEvidences = []
 let unwantedEvidences = []
 let filteredArr = []
 let language = ''
+let nextIndex = 0
+let $nextItem
 
 const $list = document.querySelector('.evidence__list')
 const colors = ['', '#70bb1f', '#968E6B']
@@ -199,6 +201,15 @@ function maxEvidence() {
 function addEvidence(newEvidence, $addItem) {
     checkedEvidences.push(newEvidence)
     $addItem.style.backgroundColor = colors[1]
+
+    evidenceType.forEach((evidence, index) => {
+        if (evidence === newEvidence) nextIndex = (index % 2 === 0) ? ++index : --index
+    })
+
+    if (nextIndex !== evidenceType.length) {
+        $nextItem = document.getElementById('evidence__table').querySelectorAll('.evidence__item')[nextIndex].querySelector('.evidence__body')
+        unwantedEvidence($nextItem.querySelector('span').dataset.type, $nextItem)
+    }
 }
 
 function updateEvidence() {
