@@ -2,8 +2,8 @@ let checkedEvidences = []
 let unwantedEvidences = []
 let filteredArr = []
 let language = ''
-let nextIndex = 0
-let $nextItem
+let pairIndex = 0
+let $pairItem
 
 const $list = document.querySelector('.evidence__list')
 const colors = ['', '#70bb1f', '#968E6B']
@@ -104,7 +104,7 @@ function phrasesLabel(event) {
     let label = event.target.closest('li')
     let labelItems = document.getElementById('phrases__label').querySelectorAll('li')
     let textItems = document.getElementById('phrases__text').querySelectorAll('div')
-    
+
     labelItems.forEach(el => el.classList.remove('label-active'))
     event.target.closest('li').classList.add('label-active')
 
@@ -171,6 +171,20 @@ function updateEvidenceTable(event) {
     updateEvidence()
 }
 
+function maxEvidence() {
+    if (language === 'en') document.querySelector('.evidence__warning').textContent = 'Can not be more than 3 evidences!'
+    if (language === 'ru') document.querySelector('.evidence__warning').textContent = 'Не может быть больше 3 улик!'
+    setTimeout(() => document.querySelector('.evidence__warning').textContent = '', 3000)
+}
+
+function checkPair() {
+    checkedEvidences.forEach(checkedEvidence => {
+        evidenceType.forEach((evidence, index) => {
+            if (evidence === checkedEvidence) pairIndex = (index % 2 === 0) ? ++index : --index
+        })
+    })
+}
+
 function unwantedEvidence(newEvidence, $addItem) {
     if (checkedEvidences.includes(newEvidence)) {
         removeEvidence(newEvidence, $addItem)
@@ -188,28 +202,30 @@ function unwantedEvidence(newEvidence, $addItem) {
 }
 
 function removeEvidence(newEvidence, $addItem) {
-    checkedEvidences.splice(checkedEvidences.indexOf(newEvidence), 1)
-    $addItem.style.backgroundColor = colors[0]
-}
+    checkPair()
 
-function maxEvidence() {
-    if (language === 'en') document.querySelector('.evidence__warning').textContent = 'Can not be more than 3 evidences!'
-    if (language === 'ru') document.querySelector('.evidence__warning').textContent = 'Не может быть больше 3 улик!'
-    setTimeout(() => document.querySelector('.evidence__warning').textContent = '', 3000)
+    if (pairIndex !== evidenceType.length) {
+        $pairItem = document.getElementById('evidence__table').querySelectorAll('.evidence__item')[pairIndex].querySelector('.evidence__body')
+        unwantedEvidences.splice(unwantedEvidences.indexOf($pairItem), 1)
+    }
+
+    checkedEvidences.splice(checkedEvidences.indexOf(newEvidence), 1)
+
+    $addItem.style.backgroundColor = colors[0]
+    $pairItem.style.backgroundColor = colors[0]
 }
 
 function addEvidence(newEvidence, $addItem) {
     checkedEvidences.push(newEvidence)
-    $addItem.style.backgroundColor = colors[1]
 
-    evidenceType.forEach((evidence, index) => {
-        if (evidence === newEvidence) nextIndex = (index % 2 === 0) ? ++index : --index
-    })
+    checkPair()
 
-    if (nextIndex !== evidenceType.length) {
-        $nextItem = document.getElementById('evidence__table').querySelectorAll('.evidence__item')[nextIndex].querySelector('.evidence__body')
-        unwantedEvidence($nextItem.querySelector('span').dataset.type, $nextItem)
+    if (pairIndex !== evidenceType.length) {
+        $pairItem = document.getElementById('evidence__table').querySelectorAll('.evidence__item')[pairIndex].querySelector('.evidence__body')
+        unwantedEvidence($pairItem.querySelector('span').dataset.type, $pairItem)
     }
+
+    $addItem.style.backgroundColor = colors[1]
 }
 
 function updateEvidence() {
