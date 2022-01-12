@@ -11,7 +11,6 @@ const headerPhrasesArr = {
     'en': ['PHRASES', 'CALC'],
     'ru': ['ФРАЗЫ', 'КАЛЬКУЛЯТОР'],
 }
-const evidenceReverse = [evidenceType[0], evidenceType[1]]
 const ghosts = [
     {
         'name': ghostType[0],
@@ -181,7 +180,8 @@ function updateEvidenceTable(event) {
         removeEvidence(newEvidence, $addItem)
         
     // if more than 3 evidences
-    } else if ((checkedEvidences.length > 2) && (!checkedEvidences.includes(evidenceType[3]))) {
+    } else if ((checkedEvidences.length > 2) && (!checkedEvidences.includes(evidenceType[3])) ||
+        (checkedEvidences.length > 3)) {
         maxEvidence()
 
     // add the evidence
@@ -198,13 +198,10 @@ function maxEvidence() {
     setTimeout(() => document.querySelector('.evidence__warning').textContent = '', 3000)
 }
 
-function checkPair() {
-    pairIndex = 2
-
-    checkedEvidences.forEach(checkedEvidence => {
-        if (evidenceType[0] === checkedEvidence) pairIndex = 1
-        if (evidenceType[1] === checkedEvidence) pairIndex = 0
-    })
+function checkPair(newEvidence) {
+    if (evidenceType[0] === newEvidence) pairIndex = 1
+    else if (evidenceType[1] === newEvidence) pairIndex = 0
+    else pairIndex = 2
 
     if (pairIndex !== 2) {
         $pairItem = document.getElementById('evidence__table').querySelectorAll('.evidence__item')[pairIndex].querySelector('.evidence__body')
@@ -228,7 +225,7 @@ function unwantedEvidence(newEvidence, $addItem) {
 }
 
 function removeEvidence(newEvidence, $addItem) {
-    checkPair()
+    checkPair(newEvidence)
     if (pairIndex !== 2) {
         unwantedEvidences.splice(unwantedEvidences.indexOf($pairItem), 1)
         $pairItem.style.backgroundColor = colors[0]
@@ -242,7 +239,7 @@ function removeEvidence(newEvidence, $addItem) {
 function addEvidence(newEvidence, $addItem) {
     checkedEvidences.push(newEvidence)
 
-    checkPair()
+    checkPair(newEvidence)
     if (pairIndex !== 2) unwantedEvidence($pairItem.querySelector('span').dataset.type, $pairItem)
 
     $addItem.style.backgroundColor = colors[1]
