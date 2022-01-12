@@ -2,7 +2,7 @@ let checkedEvidences = []
 let unwantedEvidences = []
 let filteredArr = []
 let language = ''
-let pairIndex = 0
+let pairIndex = 2
 let $pairItem
 
 const $list = document.querySelector('.evidence__list')
@@ -11,6 +11,7 @@ const headerPhrasesArr = {
     'en': ['PHRASES', 'CALC'],
     'ru': ['ФРАЗЫ', 'КАЛЬКУЛЯТОР'],
 }
+const evidenceReverse = [evidenceType[0], evidenceType[1]]
 const ghosts = [
     {
         'name': ghostType[0],
@@ -75,6 +76,26 @@ const ghosts = [
     {
         'name': ghostType[15],
         'evidences': [evidenceType[1], evidenceType[2], evidenceType[6]],
+    },
+    {
+        'name': ghostType[16],
+        'evidences': [evidenceType[2], evidenceType[3], evidenceType[6]],
+    },
+    {
+        'name': ghostType[17],
+        'evidences': [evidenceType[3], evidenceType[4], evidenceType[5]],
+    },
+    {
+        'name': ghostType[18],
+        'evidences': [evidenceType[0], evidenceType[2], evidenceType[3]],
+    },
+    {
+        'name': ghostType[19],
+        'evidences': [evidenceType[3], evidenceType[4], evidenceType[5], evidenceType[6]],
+    },
+    {
+        'name': ghostType[20],
+        'evidences': [evidenceType[2], evidenceType[4], evidenceType[5]],
     },
 ]
 
@@ -160,7 +181,7 @@ function updateEvidenceTable(event) {
         removeEvidence(newEvidence, $addItem)
         
     // if more than 3 evidences
-    } else if (checkedEvidences.length > 2) {
+    } else if ((checkedEvidences.length > 2) && (!checkedEvidences.includes(evidenceType[3]))) {
         maxEvidence()
 
     // add the evidence
@@ -172,17 +193,22 @@ function updateEvidenceTable(event) {
 }
 
 function maxEvidence() {
-    if (language === 'en') document.querySelector('.evidence__warning').textContent = 'Can not be more than 3 evidences!'
-    if (language === 'ru') document.querySelector('.evidence__warning').textContent = 'Не может быть больше 3 улик!'
+    if (language === 'en') document.querySelector('.evidence__warning').textContent = 'Can not be more evidences!'
+    if (language === 'ru') document.querySelector('.evidence__warning').textContent = 'Не может быть больше улик!'
     setTimeout(() => document.querySelector('.evidence__warning').textContent = '', 3000)
 }
 
 function checkPair() {
+    pairIndex = 2
+
     checkedEvidences.forEach(checkedEvidence => {
-        evidenceType.forEach((evidence, index) => {
-            if (evidence === checkedEvidence) pairIndex = (index % 2 === 0) ? ++index : --index
-        })
+        if (evidenceType[0] === checkedEvidence) pairIndex = 1
+        if (evidenceType[1] === checkedEvidence) pairIndex = 0
     })
+
+    if (pairIndex !== 2) {
+        $pairItem = document.getElementById('evidence__table').querySelectorAll('.evidence__item')[pairIndex].querySelector('.evidence__body')
+    }
 }
 
 function unwantedEvidence(newEvidence, $addItem) {
@@ -203,27 +229,21 @@ function unwantedEvidence(newEvidence, $addItem) {
 
 function removeEvidence(newEvidence, $addItem) {
     checkPair()
-
-    if (pairIndex !== evidenceType.length) {
-        $pairItem = document.getElementById('evidence__table').querySelectorAll('.evidence__item')[pairIndex].querySelector('.evidence__body')
+    if (pairIndex !== 2) {
         unwantedEvidences.splice(unwantedEvidences.indexOf($pairItem), 1)
+        $pairItem.style.backgroundColor = colors[0]
     }
 
     checkedEvidences.splice(checkedEvidences.indexOf(newEvidence), 1)
 
     $addItem.style.backgroundColor = colors[0]
-    $pairItem.style.backgroundColor = colors[0]
 }
 
 function addEvidence(newEvidence, $addItem) {
     checkedEvidences.push(newEvidence)
 
     checkPair()
-
-    if (pairIndex !== evidenceType.length) {
-        $pairItem = document.getElementById('evidence__table').querySelectorAll('.evidence__item')[pairIndex].querySelector('.evidence__body')
-        unwantedEvidence($pairItem.querySelector('span').dataset.type, $pairItem)
-    }
+    if (pairIndex !== 2) unwantedEvidence($pairItem.querySelector('span').dataset.type, $pairItem)
 
     $addItem.style.backgroundColor = colors[1]
 }
@@ -258,15 +278,13 @@ function dispayList(arr) {
         arr.forEach(el => {
             let li = document.createElement('li')
 
-            if (checkedEvidences.length === 3) {
-                li.textContent = el.name
-            } else {
-                li.textContent = el.name + ' - '
-                el.evidences.forEach(evidence => {
-                    if (!checkedEvidences.includes(evidence)) li.textContent += evidence + ', '
-                })
-                li.textContent = li.textContent.slice(0, -2)
-            }
+            li.textContent = el.name + ' - '
+
+            el.evidences.forEach(evidence => {
+                if (!checkedEvidences.includes(evidence)) li.textContent += evidence + ', '
+            })
+
+            li.textContent = li.textContent.slice(0, -2)
             $list.appendChild(li)
         })
     }
