@@ -96,6 +96,18 @@ const ghosts = [
         'name': ghostType[20],
         'evidences': [evidenceType[2], evidenceType[4], evidenceType[5]],
     },
+    {
+        'name': ghostType[21],
+        'evidences': [evidenceType[1], evidenceType[4], evidenceType[5]],
+    },
+    {
+        'name': ghostType[22],
+        'evidences': [evidenceType[0], evidenceType[1], evidenceType[5]],
+    },
+    {
+        'name': ghostType[23],
+        'evidences': [evidenceType[0], evidenceType[1], evidenceType[3]],
+    },
 ]
 
 document.getElementById('header__phrases').addEventListener('click', phrasesBtn)
@@ -198,16 +210,6 @@ function maxEvidence() {
     setTimeout(() => document.querySelector('.evidence__warning').textContent = '', 3000)
 }
 
-function checkPair(newEvidence) {
-    if (evidenceType[0] === newEvidence) pairIndex = 1
-    else if (evidenceType[1] === newEvidence) pairIndex = 0
-    else pairIndex = 2
-
-    if (pairIndex !== 2) {
-        $pairItem = document.getElementById('evidence__table').querySelectorAll('.evidence__item')[pairIndex].querySelector('.evidence__body')
-    }
-}
-
 function unwantedEvidence(newEvidence, $addItem) {
     if (checkedEvidences.includes(newEvidence)) {
         removeEvidence(newEvidence, $addItem)
@@ -225,12 +227,6 @@ function unwantedEvidence(newEvidence, $addItem) {
 }
 
 function removeEvidence(newEvidence, $addItem) {
-    checkPair(newEvidence)
-    if (pairIndex !== 2) {
-        unwantedEvidences.splice(unwantedEvidences.indexOf($pairItem), 1)
-        $pairItem.style.backgroundColor = colors[0]
-    }
-
     checkedEvidences.splice(checkedEvidences.indexOf(newEvidence), 1)
 
     $addItem.style.backgroundColor = colors[0]
@@ -238,10 +234,6 @@ function removeEvidence(newEvidence, $addItem) {
 
 function addEvidence(newEvidence, $addItem) {
     checkedEvidences.push(newEvidence)
-
-    checkPair(newEvidence)
-    if (pairIndex !== 2) unwantedEvidence($pairItem.querySelector('span').dataset.type, $pairItem)
-
     $addItem.style.backgroundColor = colors[1]
 }
 
