@@ -1,0 +1,93 @@
+section.cards
+    h2 Tarot Cards
+    .container
+        .cards__table
+            .cards__list
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheWheelOfFortune.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheWheelOfFortune.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheWheelOfFortune.jpg' alt='TheWheelOfFortune')
+                    .cards__effect
+                        p Игрок получает 25% рассудка, если карта сгорит зеленым,
+                            br
+                            | или теряет 25% рассудка, если карта сгорит красным
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheTower.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheTower.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheTower.jpg' alt='TheTower')
+                    .cards__effect
+                        p Causes an interaction
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheDevil.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheDevil.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheDevil.jpg' alt='TheDevil')
+                    .cards__effect
+                        p Запускает призрачное событие для ближайшего к призраку игрока
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheHermit.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheHermit.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheHermit.jpg' alt='TheHermit')
+                    .cards__effect
+                        p Телепортирует призрака обратно в его комнату и запирает там на 1 минуту. Это не влияет на охоту
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/Death.webp' type='image/webp')
+                            source(data-srcset='./assets/images/Death.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/Death.jpg' alt='Death')
+                    .cards__effect
+                        p Запускает проклятую охоту
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheSun.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheSun.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheSun.jpg' alt='TheSun')
+                    .cards__effect
+                        p Полностью восстанавливает рассудок до 100%
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheMoon.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheMoon.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheMoon.jpg' alt='TheMoon')
+                    .cards__effect
+                        p Мгновенно опускает рассудок до 0%
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheHighPreistess.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheHighPreistess.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheHighPreistess.jpg' alt='TheHighPreistess')
+                    .cards__effect
+                        p Оживляет случайно мертвого человека в его трупе.
+                            br
+                            | Если в данный момент никто не умер, то воскреснет следующий умерший игрок
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheHangedMan.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheHangedMan.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheHangedMan.jpg' alt='TheHangedMan')
+                    .cards__effect
+                        p Мгновенно убивает игрока
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheFool.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheFool.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheFool.jpg' alt='TheFool')
+                    .cards__effect
+                        p Сначала появится как другая карта, после превратится в Дурака, когда сгорит.
+                            br
+                            | Эта карта не имеет эффектов.
+                            br
+                            | 100% шанс вытягивания во время охоты

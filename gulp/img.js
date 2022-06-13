@@ -6,7 +6,7 @@ const rename = require('gulp-rename')
 const rezzy = require('gulp-rezzy')
 
 module.exports = function img() {
-    gulp.src('./#src/assets/img/*.{jpg,png}')
+    gulp.src('./#src/assets/images/*.{jpg,png}')
         .pipe(imagemin([
             imagemin.gifsicle({ interlaced: true }),
             imagemin.mozjpeg({
@@ -27,23 +27,11 @@ module.exports = function img() {
                 ]
             })
         ]))
-        .pipe(gulp.dest('./dist/assets/img/'))
-        .pipe(rezzy([
-            {
-                width: 640,
-                suffix: '-640'
-            }
-        ]))
-        .pipe(gulp.dest('./dist/assets/img/'))
-        return gulp.src('./#src/assets/img/*.{jpg,png}')
+        .pipe(gulp.dest('./dist/assets/images/'))
+        .pipe(gulp.dest('./dist/assets/images/'))
+        return gulp.src('./#src/assets/images/*.{jpg,png}')
             .pipe(imagemin([imageminWebp({ quality: 75 })]))
             .pipe(rename({ extname: '.webp' }))
-            .pipe(gulp.dest('./dist/assets/img/'))
-            .pipe(rezzy([ // 960, 1280
-                {
-                    width: 640,
-                    suffix: '-640'
-                }
-            ]))
-            .pipe(gulp.dest('./dist/assets/img/'))
+            .pipe(gulp.dest('./dist/assets/images/'))
+            .pipe(gulp.dest('./dist/assets/images/'))
 }

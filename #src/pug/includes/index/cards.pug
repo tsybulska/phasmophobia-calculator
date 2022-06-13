@@ -1,0 +1,93 @@
+section.cards
+    h2 Tarot Cards
+    .container
+        .cards__table
+            .cards__list
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheWheelOfFortune.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheWheelOfFortune.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheWheelOfFortune.jpg' alt='TheWheelOfFortune')
+                    .cards__effect
+                        p The player gains 25% sanity if the card burns green,
+                            br
+                            | or loses 25% sanity if the card burns red
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheTower.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheTower.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheTower.jpg' alt='TheTower')
+                    .cards__effect
+                        p Causes an interaction
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheDevil.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheDevil.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheDevil.jpg' alt='TheDevil')
+                    .cards__effect
+                        p Triggers a Ghost Event towards the nearest player to the ghost
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheHermit.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheHermit.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheHermit.jpg' alt='TheHermit')
+                    .cards__effect
+                        p Teleports the ghost back to its ghost room and traps it there for 1 minute. This does not affect hunts
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/Death.webp' type='image/webp')
+                            source(data-srcset='./assets/images/Death.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/Death.jpg' alt='Death')
+                    .cards__effect
+                        p Triggers a cursed hunt
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheSun.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheSun.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheSun.jpg' alt='TheSun')
+                    .cards__effect
+                        p Fully restores sanity to 100%
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheMoon.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheMoon.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheMoon.jpg' alt='TheMoon')
+                    .cards__effect
+                        p Instantly drops sanity to 0%
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheHighPreistess.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheHighPreistess.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheHighPreistess.jpg' alt='TheHighPreistess')
+                    .cards__effect
+                        p Revives a randomly chosen dead person at their corpse.
+                            br
+                            | If no one is currently dead, it will revive the next player who dies
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheHangedMan.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheHangedMan.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheHangedMan.jpg' alt='TheHangedMan')
+                    .cards__effect
+                        p Instantly kills the player
+                .cards__item
+                    .cards__img
+                        picture
+                            source(data-srcset='./assets/images/TheFool.webp' type='image/webp')
+                            source(data-srcset='./assets/images/TheFool.jpg' type='image/jpeg')
+                            img(class='lazyload' data-src='./assets/images/TheFool.jpg' alt='TheFool')
+                    .cards__effect
+                        p Will appear as another card at first, before turning into The Fool as it burns.
+                            br
+                            | No effect is applied when drawing this card.
+                            br
+                            | 100% drawing chance during hunts

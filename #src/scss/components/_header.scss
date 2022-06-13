@@ -21,7 +21,7 @@
         }
     }
 
-    &__icons {
+    &__menu {
         display: flex;
         align-items: center;
 
@@ -30,6 +30,10 @@
             @include onHover;
             cursor: pointer;
         }
+    }
+
+    &__back {
+        opacity: 0;
     }
 }
 
@@ -52,7 +56,7 @@
             }
         }
 
-        &__icons {
+        &__menu {
             * {
                 margin-left: 10px;
             }

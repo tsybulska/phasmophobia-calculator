@@ -2,15 +2,14 @@ let checkedEvidences = []
 let unwantedEvidences = []
 let filteredArr = []
 let language = ''
-let pairIndex = 2
-let $pairItem
 
 const $list = document.querySelector('.evidence__list')
 const colors = ['', '#70bb1f', '#968E6B']
-const headerPhrasesArr = {
-    'en': ['PHRASES', 'CALC'],
-    'ru': ['ФРАЗЫ', 'КАЛЬКУЛЯТОР'],
+const headerMenuArr = {
+    'en': ['CARDS', 'PHRASES'],
+    'ru': ['КАРТЫ', 'ФРАЗЫ'],
 }
+
 const ghosts = [
     {
         'name': ghostType[0],
@@ -110,7 +109,8 @@ const ghosts = [
     },
 ]
 
-document.getElementById('header__phrases').addEventListener('click', phrasesBtn)
+document.getElementById('header__back').addEventListener('click', headerBack)
+document.getElementById('header__menu').addEventListener('click', headerMenu)
 document.getElementById('phrases__label').addEventListener('click', phrasesLabel)
 document.getElementById('header__theme').addEventListener('click', changeTheme)
 document.getElementById('evidence__reset').addEventListener('click', resetBtn)
@@ -118,18 +118,35 @@ document.getElementById('evidence__table').addEventListener('click', updateEvide
 
 language = document.body.classList.contains('en') ? 'en' : 'ru'
 
-function phrasesBtn(event) {
-    if (document.body.classList.contains('phrases-show')) {
-        document.querySelector('.phrases').style.display = 'none'
-        document.querySelector('.evidence').style.display = 'block'
-        event.target.textContent = headerPhrasesArr[language][0]
-    } else {
-        document.querySelector('.evidence').style.display = 'none'
-        document.querySelector('.phrases').style.display = 'block'
-        event.target.textContent = headerPhrasesArr[language][1]
+function headerBack () {
+    if (document.body.classList.contains('cards-show')) {
+        document.body.classList.toggle('cards-show')
+    } else if (document.body.classList.contains('phrases-show')) {
+        document.body.classList.toggle('phrases-show')
     }
 
-    document.body.classList.toggle('phrases-show')
+    document.querySelector('.cards').style.display = 'none'
+    document.querySelector('.phrases').style.display = 'none'
+    document.querySelector('.evidence').style.display = 'block'
+    document.getElementById('header__back').style.opacity = '0'
+}
+
+function headerMenu(event) {
+    let btn = event.target.closest('span')
+
+    headerBack()
+
+    if (btn.classList.contains('header__cards')) {
+        document.body.classList.toggle('cards-show')
+        document.getElementById('header__back').style.opacity = '1'
+        document.querySelector('.cards').style.display = 'block'
+        document.querySelector('.evidence').style.display = 'none'
+    } else if (btn.classList.contains('header__phrases')) {
+        document.body.classList.toggle('phrases-show')
+        document.getElementById('header__back').style.opacity = '1'
+        document.querySelector('.phrases').style.display = 'block'
+        document.querySelector('.evidence').style.display = 'none'
+    }
 }
 
 function phrasesLabel(event) {
